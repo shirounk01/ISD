@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Main {
 
-	final static int NO_TESTS = 3;
-	final static int NO_THREADS = 1000;
+	final static int NO_TESTS = 2;
+	final static int NO_THREADS = 50;
 	final static int NO_RUNS_PER_TEST = 5;
 	final static String[] METHOD_STRINGS = new String[] { "threadsApproach", "forkJoinPoolApproach", "executorServiceApproach", "streamApproach" };
 	final static Random RANDOM = new Random();
@@ -94,7 +94,7 @@ public class Main {
 		System.out.format("\n%50s\n", "--- Vector Sum ---");
 		for (int i = 0; i < NO_TESTS; i++, arraySize *= 10) {
 
-			long[] array = new Random().longs(arraySize, 0, UPPER_BOUND_VALUE).toArray();
+			long[] array = RANDOM.longs(arraySize, 0, UPPER_BOUND_VALUE).toArray();
 			VectorSum aOp = new VectorSum(array, NO_THREADS);
 			System.out.println("\n>>> For an array of length " + arraySize + " (avg. time for " + NO_RUNS_PER_TEST
 					+ " tests and " + NO_THREADS + " threads)");

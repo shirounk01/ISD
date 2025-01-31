@@ -9,14 +9,14 @@ public class MatrixAddition {
 	private final long[][] A, B, C;
 	private final int threshold, noThreads, rows, cols;
 
-	public MatrixAddition(long[][] A, long[][] B, int numThreads) {
+	public MatrixAddition(long[][] A, long[][] B, int noThreads) {
 		this.A = A;
 		this.B = B;
 		this.rows = A.length;
 		this.cols = A[0].length;
 		this.C = new long[rows][cols];
-		this.noThreads = numThreads;
-		this.threshold = Math.max(1, (rows * cols) / numThreads);
+		this.noThreads = noThreads;
+		this.threshold = Math.max(1, (rows * cols) / noThreads);
 	}
 
 	public long[][] nonParallelApproach() {

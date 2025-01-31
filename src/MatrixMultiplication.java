@@ -9,15 +9,15 @@ public class MatrixMultiplication {
 	private final long[][] A, B, C;
 	private final int threshold, noThreads, rows, cols, commonDim;
 
-	public MatrixMultiplication(long[][] A, long[][] B, int numThreads) {
+	public MatrixMultiplication(long[][] A, long[][] B, int noThreads) {
 		this.A = A;
 		this.B = B;
 		this.rows = A.length;
 		this.commonDim = A[0].length;
 		this.cols = B[0].length;
 		this.C = new long[rows][cols];
-		this.noThreads = numThreads;
-		this.threshold = Math.max(1, (rows * cols) / numThreads);
+		this.noThreads = noThreads;
+		this.threshold = Math.max(1, (rows * cols) / noThreads);
 	}
 
 	public long[][] nonParallelApproach() {
